@@ -13,8 +13,8 @@ const NgoRegisteration = () => {
       </div>
 
       <div className='bottomSection'>
-      <div className='heading'>
-      <h3>Ngo Registeration</h3>
+      <div className=''>
+      <h3 className='heading'>Ngo Registeration</h3>
       </div>
         <div className='bottomSectionLeft'>
         <div className='formWrapperLeft'>
@@ -33,8 +33,16 @@ const NgoRegisteration = () => {
           <label> Contact Number </label>
           <input type='text' placeholder='' className='formInput'></input>
         </div>
+        <div className='formWrapperLeft textAreaSection'>
+          <label for="missionStatement"> Mission Statement </label>
+          <textarea id="missionStatment"  className='formInput'></textarea>
+        </div>
         <div className='formWrapperLeft'>
           <label> Location </label>
+          <input type='text' placeholder='' className='formInput'></input>
+        </div>
+        <div className='formWrapperLeft'>
+          <label> Timings </label>
           <input type='text' placeholder='' className='formInput'></input>
         </div>
         <div className='formWrapperLeft'>
