@@ -1,0 +1,42 @@
+.banner{
+    text-align:center;
+    padding:30px;
+}
+
+.middleSection{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin:30px;
+}
+
+
+.formInput {
+  margin-bottom : 20px;
+width:200px;
+border-radius:3px;
+margin-left : 5px;
+}
+
+.heading{
+  margin:20px;
+}
+
+.registerButton{
+    padding: 15px 30px; /* Adjust padding as needed */
+  font-size: 18px; /* Adjust font size as needed */
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; /* Change background color as needed */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width:300px;
+}
+
+.registerButton:hover {
+    background-color: #0056b3; /* Change hover color as needed */
+  }
+
+  
