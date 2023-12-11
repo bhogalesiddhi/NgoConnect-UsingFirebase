@@ -1,0 +1,15 @@
+/* Herosection.css */
+
+.hero-section {
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Hide any overflow */
+  }
+  
+  .hero-image {
+    width: 100vw; /* Set the width of the image to 100% of the viewport width */
+    max-height: 95vh; /* Set the maximum height of the image */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures the image is treated as a block element */
+  }
+  

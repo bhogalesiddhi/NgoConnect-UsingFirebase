@@ -2,11 +2,12 @@
 
 import React from 'react';
 import './Herosection.css';
+import hero from '../../images/header.png'
 
 const Herosection = () => {
   return (
     <div className="hero-section">
-      <img src="path_to_your_hero_image" alt="Hero" className="hero-image" />
+      <img src={hero} alt="Hero" className="hero-image" />
     </div>
   );
 };
