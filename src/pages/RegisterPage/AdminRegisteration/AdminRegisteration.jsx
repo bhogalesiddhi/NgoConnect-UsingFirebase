@@ -1,7 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './AdminRegisteration.css'
+import { auth,db,storage } from '../../../firebaseConfig';
+import { addDoc, collection } from 'firebase/firestore';
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 
 const AdminRegisteration = () => {
+
+  const [fname , setFname] = useState("");
+  const [email , setEmail] = useState("");
+  const [contact ,setContact] = useState("");
+  const [password,setPassword] = useState("");
+  const [profile,setProfile] = useState("");
+  const [role,setRole] = useState("admin");
+
+  const adminCollectionRef = collection(db,"admin");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      let link;
+      const storageRef = ref(storage, `adminProfile/${profile.name}`);
+      try {
+        const snapshot = await uploadBytes(storageRef, profile);
+        link = await getDownloadURL(snapshot.ref);
+      } catch (err) {
+        console.log("Error uploading image", err);
+      }
+  
+      await addDoc(adminCollectionRef, {
+        fname: fname,
+        email: email,
+        contact: contact,
+        password: password,
+        profile: link,
+        role: role,
+      });
+    } catch (err) {
+      console.log("Error registering admin", err);
+    }
+  };
+  
+
   return (
     <div className='adminRegistration'>
       <div className='adminRegistrationWrapper'>
@@ -13,35 +51,37 @@ const AdminRegisteration = () => {
         </div>
         <div className='middleSection'>
         <h3 className='heading'>Admin Registration</h3>
+        <form onSubmit={handleSubmit}>
         <div className='formWrapper'>
         <label>Full Name</label>
-          <input  className="formInput" type='text'></input>
+          <input  onChange={(e) => setFname(e.target.value)} className="formInput" type='text'></input>
         </div>
         <div className='formWrapper'>
         <label>Email</label>
-          <input  className="formInput" type='email'></input>
+          <input  onChange={(e) => setEmail(e.target.value)} className="formInput" type='email'></input>
         </div>
         <div className='formWrapper'>
         <label>Contact Number</label>
-          <input  className="formInput"type='text'></input>
+          <input  onChange={(e) => setContact(e.target.value)} className="formInput"type='text'></input>
         </div>
         <div className='formWrapper'>
         <label>Password</label>
-          <input className="formInput" type='text'></input>
+          <input onChange={(e) => setPassword(e.target.value)} className="formInput" type='text'></input>
         </div>
         <div className='formWrapper'>
         <label>Profile Pic</label>
-          <input className="formInput" type='file'></input>
+          <input onChange={(e) => setProfile(e.target.files[0])} className="formInput" type='file'></input>
         </div>
         <div className='registerButtonSection'>
-          <button className='registerButton'>Register</button>
+          <button type="submit" className='registerButton'>Register</button>
         </div>
+        </form>
         </div>
 
       </div>
       </div>
    
   )
-}
 
-export default AdminRegisteration
+}
+export default AdminRegisteration;
