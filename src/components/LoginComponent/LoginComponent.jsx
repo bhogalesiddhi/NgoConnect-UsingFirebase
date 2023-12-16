@@ -1,8 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./LoginComponent.css"
 import { Link } from 'react-router-dom'
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../firebaseConfig';
+import { useNavigate } from 'react-router-dom';
+import { fetchUserRole } from '../../functions/userService';
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
-const LoginComponent = () => {
+const LoginComponent = ({setIsAuth}) => {
+  
+  const navigate = useNavigate();
+  
+  const [ email,setEmail ] = useState("");
+  const [password,setPassword] = useState(""); 
+  const [role,setRole] = useState(""); 
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    try{
+      const userLoginCredential = await signInWithEmailAndPassword(auth,email,password);
+      console.log(userLoginCredential)
+      alert("Login Successfull");
+
+      
+      //fetch the user's role
+      const userRole = await fetchUserRole(email);
+
+      const userInfo = {
+        uid : userLoginCredential.user.uid,
+        userEmail : email,
+        userRole:userRole
+      }
+
+      localStorage.setItem('userInfo',JSON.stringify(userInfo));
+      cookies.set("auth-cookiee", userLoginCredential.user.uid);
+      
+      setEmail("");
+      setPassword("");
+      setRole(userRole);
+      navigate("/")
+    }catch(err){
+      if(err.code === 'auth/invalid-login-credentials')
+      {
+        console.log(err.code);
+      alert("Incorrect Password");
+      }else{
+        console.log(err);
+      }
+    }
+  }
+
   return (
     
     <div className='login'>
@@ -18,23 +66,23 @@ const LoginComponent = () => {
     </div>
         
         <div className='loginBox'>
-        <form>
+        <form onSubmit={handleLogin}>
             <div className='formWrapper'>
-            <input type='text' placeholder='Email id' className='loginInput' />
+            <input type='text' onChange={(e) => setEmail(e.target.value)} placeholder='Email id' className='loginInput' />
             </div>
             <div className='formWrapper'>
-            <input type='text' placeholder='Password' className='loginInput' />
+            <input type='text' onChange={(e) => setPassword(e.target.value)} placeholder='Password' className='loginInput' />
             </div>
             <div className='formWrapper selectSection' >
             <label >Choose your role :</label>
-                  <select name='role' id='role'>
-                    <option value='User'>User</option>
-                    <option value='Ngo'>Ngo</option>
-                    <option value='Admin'>Admin </option>
+                  <select value={role} onChange={(e) => setRole(e.target.value)} name='role' id='role'>
+                    <option value='User'>user</option>
+                    <option value='Ngo'>ngo</option>
+                    <option value='Admin'>admin </option>
                   </select>
             </div>
             <div className='formWrapper'>
-            <button className='loginButton'>Login</button>
+            <button type="submit" className='loginButton'>Login</button>
             </div>
             
         </form>

@@ -2,8 +2,24 @@
 
 import React from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+  const userInfoString = localStorage.getItem('userInfo');
+  const userInfo = JSON.parse(userInfoString); // Parse the string to object
+  const role = userInfo ? userInfo.userRole : null; // Get userRole from userInfo
+
+  const getProfileLink = () => {
+    if (role === 'ngo') {
+      return '/ngoPortfolio';
+    } else if (role === 'user') {
+      return '/userProfile';
+    } else {
+      console.log('Role not found');
+      return '/';
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -13,9 +29,9 @@ const Navbar = () => {
       <div className="navbar-right">
         <ul className="nav-links">
           <li><a href="#home">Home</a></li>
-          <li><a href="#all-ngos">All Ngos</a></li>
+          <li><a href="">All Ngos</a></li>
           <li><a href="#about-us">About Us</a></li>
-          <li><a href="#profile">Profile</a></li>
+          <li> <Link to={getProfileLink()}>Profile</Link></li>
         </ul>
       </div>
     </nav>

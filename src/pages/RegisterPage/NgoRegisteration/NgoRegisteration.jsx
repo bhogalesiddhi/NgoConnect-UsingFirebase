@@ -61,9 +61,12 @@ const NgoRegisteration = () => {
         role:role,
         logoImg : logoLink,
         certiImg : certiLink,
-        
+         
 
       })
+
+      alert("Registration Successfull");
+    
 
     }catch(err){
       console.log("Error registering",err);
