@@ -13,6 +13,7 @@ import { useState } from 'react';
 import NgoPortfolio from './pages/NgoPortfolio/NgoPortfolio';
 import CreateProject from './pages/CreateProject/CreateProject';
 import AddEvent from './pages/AddEvent/AddEvent';
+import ViewEvents from './pages/ViewEvents/ViewEvents';
  const cookies = new Cookies();
 
 
@@ -38,6 +39,7 @@ function App() {
       <Route path='/ngoPortfolio' element={<NgoPortfolio/>}/>
       <Route path='/createProject/:docId' element={<CreateProject/>}/>
       <Route path='/:ngoId/:projectId/createEvent' element={<AddEvent/>}/>
+      <Route path='/:ngoId/:projectId/viewEvents' element={<ViewEvents/>}/>
     </Routes>
    </BrowserRouter>
    </>

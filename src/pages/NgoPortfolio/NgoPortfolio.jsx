@@ -45,6 +45,10 @@ const NgoPortfolio = () => {
 
     }
 
+    const viewEvents = async (projectId) => {
+      navigate(`/${ngoData.id}/${projectId}/viewEvents`);
+    }
+
     const getProjects = async () => {
         const projectCollectionRef = collection(db, `ngo/${ngoData.id}/projects`);
         try {
@@ -116,7 +120,7 @@ const NgoPortfolio = () => {
       <div className='cardDate'>Date: {project.projectStart} - {project.projectEnd}</div>
       <div className='cardButtons'>
         <button onClick={() => handleCreateEvents(project.id)} >Add Event</button>
-        <button>View Events</button>
+        <button onClick={() => viewEvents(project.id)}>View Events</button>
       </div>
     </div>
   ))}
