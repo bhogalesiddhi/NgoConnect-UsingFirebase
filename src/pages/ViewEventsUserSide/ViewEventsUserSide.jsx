@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
-import './ViewEvents.css'
+import './ViewEventsUserSide.css'
 import Navbar from '../../components/Navbar/Navbar';
 
-const EventList = () => {
+const ViewEventsUserSide = () => {
   const { ngoId , projectId } = useParams();
   const [events, setEvents] = useState([]);
 
@@ -46,4 +46,4 @@ const EventList = () => {
   );
 };
 
-export default EventList;
+export default ViewEventsUserSide;

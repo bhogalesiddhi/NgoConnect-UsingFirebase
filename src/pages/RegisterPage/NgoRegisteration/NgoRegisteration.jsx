@@ -123,10 +123,11 @@ const NgoRegisteration = () => {
         <div className='formWrapperLeft'>
         <label >Category</label>
                   <select className='formInput' name='category' onChange={(e) => setCategory(e.target.value)} value={category} id='category'>
-                    <option value='nature'>Nature</option>
-                    <option value='ngo'>Food</option>
-                    <option value='social-cause'>Social Cause</option>
-                    <option value='other'>Other</option>
+                    <option value='Education'>Education</option>
+                    <option value='Environment'>Environment</option>
+                    <option value='HumanRights'>Human Rights</option>
+                    <option value='Health'>Health</option>
+                    <option value='AnimalWelfare'>Animal Welfare</option>
                   </select>
         </div>
         <div className='formWrapperLeft'> 

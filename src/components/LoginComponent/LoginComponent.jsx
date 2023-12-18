@@ -8,7 +8,7 @@ import { fetchUserRole } from '../../functions/userService';
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 
-const LoginComponent = ({setIsAuth}) => {
+const LoginComponent = () => {
   
   const navigate = useNavigate();
   

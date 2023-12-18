@@ -1,9 +1,59 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import './NgoProfile.css';
 import volunteer from '../../images/volunteer1.jpg';
+import {useNavigate, useParams} from 'react-router-dom';
+import {db} from '../../firebaseConfig';
+import {collection,getDocs, doc,getDoc} from 'firebase/firestore'
 
 const NgoProfile = () => {
+  const {ngoId} = useParams();
+  const navigate = useNavigate();
+  const [ngoInfo , setNgoInfo] = useState({});
+  const [ngoProjects,setNgoProjects] = useState([]);
+
+  const fetchNgoDetails = async () => {
+    try {
+      const docRef = doc(db, 'ngo', ngoId); // Correctly referencing the document in 'ngo' collection using 'doc' function
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setNgoInfo({ id: docSnap.id, ...docSnap.data() });
+        console.log(docSnap.data());
+      } else {
+        console.log('No such document!');
+      }
+    } catch (err) {
+      console.error('Error loading Ngo Info', err);
+    }
+  };
+
+  const getProjects = async () =>{
+    const ngoProjectRef = collection(db,`ngo/${ngoId}/projects`);
+    try{
+      const querySnap = await getDocs(ngoProjectRef);
+     
+        let projects = [];
+        querySnap.forEach((doc) => {
+          projects.push({...doc.data(),id:doc.id});
+        })
+        setNgoProjects(projects);;
+     
+
+    }catch(err){
+      console.log("Error Loading Projects",err)
+    }
+  }
+
+  const viewEvents = (projectId) => {
+    navigate(`/${ngoId}/${projectId}/checkEvents`);
+  }
+
+  useEffect(() => {
+    getProjects();
+     fetchNgoDetails();
+  },[ngoId])
+
   return (
     <div>
       <Navbar />
@@ -14,19 +64,23 @@ const NgoProfile = () => {
           </div>
           <div className='topRight'> 
             <div className='ngoName'>
-              <h2 className='subtitle'>Ngo Name</h2>
+              <h2 className='subtitle'>{ngoInfo.ngoName}</h2>
             </div>
             <div className='ngoMission'>
               <h4 className='subtitle'>Mission Statement</h4>
-              <span>This is our Mission</span>
+              <span>{ngoInfo.mission}</span>
             </div>
             <div className='ngoLocation'>
               <h4 className='subtitle'>Location</h4>
-              <span>Mumbai</span>
+              <span>{ngoInfo.location}</span>
+            </div>
+            <div className='ngoLocation'>
+              <h4 className='subtitle'>Category</h4>
+              <span>{ngoInfo.category}</span>
             </div>
             <div className='ngoTimings'>
               <h4 className='subtitle'>Timings</h4>
-              <span>3:00 pm - 8pm</span>
+              <span>{ngoInfo.timings}</span>
             </div>
             <div className='ngoButton'>
               <button>Volunteer</button>
@@ -38,18 +92,18 @@ const NgoProfile = () => {
           <hr />
         </div>
         <div className='projectCards'>
-          <div className='card'>
+          {
+            ngoProjects.map((project) => (
+              <div key ={project.id} className='card'>
             <img src={volunteer} alt='Project' />
-            <div className='cardDescription'>Project description goes here</div>
-            <div className='cardDate'>Date: MM/DD/YYYY</div>
-            <button className='viewEventsButton'>View Events</button>
+            <h3>{project.projectName}</h3>
+            <div className='cardDescription'>{project.projectDescription}</div>
+            <div className='cardDate'>Date : {project.projectStart} - {project.projectEnd}</div>
+            <button className='viewEventsButton' onClick={() => viewEvents(project.id)}>View Events</button>
           </div>
-          <div className='card'>
-            <img src={volunteer} alt='Project' />
-            <div className='cardDescription'>Project description goes here</div>
-            <div className='cardDate'>Date: MM/DD/YYYY</div>
-            <button className='viewEventsButton'>View Events</button>
-          </div>
+            ))
+          }
+          
           {/* Add more cards as needed */}
         </div>
       </div>

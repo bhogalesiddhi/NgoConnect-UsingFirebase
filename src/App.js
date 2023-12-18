@@ -14,6 +14,8 @@ import NgoPortfolio from './pages/NgoPortfolio/NgoPortfolio';
 import CreateProject from './pages/CreateProject/CreateProject';
 import AddEvent from './pages/AddEvent/AddEvent';
 import ViewEvents from './pages/ViewEvents/ViewEvents';
+import NgoList from './pages/NgoList/NgoList';
+import ViewEventsUserSide from './pages/ViewEventsUserSide/ViewEventsUserSide';
  const cookies = new Cookies();
 
 
@@ -35,11 +37,15 @@ function App() {
       <Route path='/register/admin' element={<AdminRegisteration/>}></Route>
       <Route path='/ngoCategory' element={<NgoCategory/>}/>
       <Route path='/userProfile' element={<UserProfile/>}></Route>
-      <Route path='/ngoProfile'  element={<NgoProfile/>}/>
+      {/* <Route path='/ngoProfile'  element={<NgoProfile/>}/> */}
       <Route path='/ngoPortfolio' element={<NgoPortfolio/>}/>
       <Route path='/createProject/:docId' element={<CreateProject/>}/>
       <Route path='/:ngoId/:projectId/createEvent' element={<AddEvent/>}/>
       <Route path='/:ngoId/:projectId/viewEvents' element={<ViewEvents/>}/>
+      <Route path='/ngos/:category' element={<NgoList/>}/>
+      <Route path='/:ngoId' element={<NgoProfile/>}/>
+      <Route path='/:ngoId/:projectId/checkEvents' element={<ViewEventsUserSide/>}/>
+
     </Routes>
    </BrowserRouter>
    </>

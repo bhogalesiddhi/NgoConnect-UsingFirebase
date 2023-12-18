@@ -3,8 +3,10 @@
 import React from 'react';
 import './NgoCategory.css'; // Import your CSS file for styling
 import Navbar from '../../components/Navbar/Navbar';
+import { useNavigate } from 'react-router-dom';
 
 const NgoCategory = () => {
+  const navigate = useNavigate();
   const categories = [ // Sample array of NGO categories (you can replace this with your actual categories)
     {
       name: 'Education',
@@ -48,6 +50,8 @@ const NgoCategory = () => {
   const handleCategoryClick = (category) => {
     // Handle category click, navigate to the page showing NGOs under the selected category
     console.log(`Selected category: ${category}`);
+    navigate(`/ngos/${category}`)
+
     // Add your logic to navigate to the page showing NGOs under the selected category
   };
 

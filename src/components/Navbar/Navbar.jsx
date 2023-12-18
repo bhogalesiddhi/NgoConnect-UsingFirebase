@@ -28,8 +28,8 @@ const Navbar = () => {
       </div>
       <div className="navbar-right">
         <ul className="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="">All Ngos</a></li>
+          <li><Link to='/'>Home</Link></li>
+          <li> <Link to='/ngoCategory'>All NGOs</Link> </li>
           <li><a href="#about-us">About Us</a></li>
           <li> <Link to={getProfileLink()}>Profile</Link></li>
         </ul>
