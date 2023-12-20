@@ -3,7 +3,8 @@ import Navbar from '../../components/Navbar/Navbar';
 import './CreateProject.css'
 import { useParams } from 'react-router-dom';
 import { addDoc, collection } from 'firebase/firestore';
-import { db } from '../../firebaseConfig';
+import { db, storage } from '../../firebaseConfig';
+import { ref, uploadBytes , getDownloadURL } from 'firebase/storage';
 
 const CreateProject = () => {
     const { docId } = useParams();
@@ -12,7 +13,7 @@ const CreateProject = () => {
   const [description, setDescription] = useState('');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState('');
 
   const handleImageChange = (event) => {
     // Handle image selection and set it to state
@@ -26,6 +27,14 @@ const CreateProject = () => {
     // Add your logic to handle form data
 
     try{
+      let link;
+      const storageRef = ref(storage,`ngoProject/${image.name}`);
+      try{
+        const snapshot = await uploadBytes(storageRef,image)
+        link = await getDownloadURL(snapshot.ref);
+      }catch(err){
+        console.log("Error uploading image", err);
+      }
         const projectCollectionRef = collection(db,`ngo/${docId}/projects`);
 
         const newProject = {
@@ -33,7 +42,7 @@ const CreateProject = () => {
             projectDescription : description,
             projectStart : startDate,
             projectEnd : endDate,
-            projectImage : image
+            projectImage : link
         }
 
         await addDoc(projectCollectionRef,newProject);

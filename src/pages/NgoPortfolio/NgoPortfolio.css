@@ -32,9 +32,9 @@
   
   .ngoButtons {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; //add this when you add the other 2 btn i.e view volunteer and donations */
     margin-bottom: 20px;
-    gap : 2px;
+    gap : 10px;
   }
   
   .projectCards {

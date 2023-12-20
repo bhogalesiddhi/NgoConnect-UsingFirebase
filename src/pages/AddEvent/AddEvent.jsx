@@ -3,7 +3,8 @@ import './AddEvent.css'; // Import the CSS file
 import Navbar from '../../components/Navbar/Navbar';
 import { useParams } from 'react-router-dom';
 import { addDoc, collection } from 'firebase/firestore';
-import { db } from '../../firebaseConfig';
+import { db, storage } from '../../firebaseConfig';
+import { ref, uploadBytes , getDownloadURL } from 'firebase/storage';
 
 const AddEvent = () => {
 
@@ -16,19 +17,28 @@ const AddEvent = () => {
   const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
   const [location, setLocation] = useState('');
-//   const [eventImage, setEventImage] = useState(null);
+const [eventImage, setEventImage] = useState('');
 
-//   const handleImageChange = (event) => {
-//     const selectedImage = event.target.files[0];
-//     setEventImage(selectedImage);
-//   };
+  const handleImageChange = (event) => {
+    const selectedImage = event.target.files[0];
+    setEventImage(selectedImage);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic here
     
         const eventCollectionRef = collection(db,`ngo/${ngoId}/projects/${projectId}/events`);
+        const storageRef = ref(storage,`ngoEvent/${eventImage.name}`)
+
         try{
+          let link;
+          try{
+            const snapshot = await uploadBytes(storageRef,eventImage)
+            link = await getDownloadURL(snapshot.ref);
+          }catch(err){
+            console.log("Error uploading image", err);
+          }
             const newEvent = {
         
                 eventName: eventName,
@@ -38,7 +48,7 @@ const AddEvent = () => {
                 startTime : startTime,
                 endTime: endTime,
                  location:location,
-                // eventImage: eventImage,
+                eventImage: link,
                
          };
            await addDoc(eventCollectionRef,newEvent);
@@ -49,7 +59,7 @@ const AddEvent = () => {
            setStartTime('');
            setEndTime('');
            setLocation('');
-        //    setEventImage(null);
+           setEventImage('');
            alert("Event added successfully")
         }catch(err){
           console.log("Error adding event",err);
@@ -139,7 +149,7 @@ const AddEvent = () => {
           <input
             type="file"
             accept="image/*"
-            // onChange={handleImageChange}
+             onChange={handleImageChange}
             className="form-control"
             // required
           />

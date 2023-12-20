@@ -1,6 +1,7 @@
 /* EventList.css */
 
 .event-list {
+  margin-top:10px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -31,3 +32,16 @@
     margin-bottom: 8px;
   }
   
+  .event-card button {
+    padding: 8px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .event-card button:hover {
+    background-color: #c82333;
+  }

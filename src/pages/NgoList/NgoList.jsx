@@ -47,7 +47,7 @@ const NgoList = () => {
     <div className='wrapper'>
       {ngos.map((ngo) => (
         <div className="ngo-container" key={ngo.id}>
-          <img src={ngo.logoUrl} alt="Ngo Logo" className="ngo-logo" />
+          <img src={ngo.logoImg} alt="Ngo Logo" className="ngo-logo" />
           <div className="ngo-details">
             <div className="ngo-name">{ngo.ngoName}</div>
             <div className="ngo-description">{ngo.mission}</div>

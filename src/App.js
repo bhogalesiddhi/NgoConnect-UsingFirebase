@@ -16,6 +16,10 @@ import AddEvent from './pages/AddEvent/AddEvent';
 import ViewEvents from './pages/ViewEvents/ViewEvents';
 import NgoList from './pages/NgoList/NgoList';
 import ViewEventsUserSide from './pages/ViewEventsUserSide/ViewEventsUserSide';
+import AdminDashboard from './pages/AdminDashboard/AdminDashboard';
+import AdminProfile from './pages/AdminProfile/AdminProfile';
+import ViewNgoAdmin from './pages/ViewNgoAdmin/ViewNgoAdmin';
+
  const cookies = new Cookies();
 
 
@@ -45,7 +49,9 @@ function App() {
       <Route path='/ngos/:category' element={<NgoList/>}/>
       <Route path='/:ngoId' element={<NgoProfile/>}/>
       <Route path='/:ngoId/:projectId/checkEvents' element={<ViewEventsUserSide/>}/>
-
+      <Route path='/adminDashboard' element={<AdminDashboard/>}/>
+      <Route path='/adminProfile' element={<AdminProfile/>}/>
+      <Route path='/admin/:ngoId' element={<ViewNgoAdmin/>}/>
     </Routes>
    </BrowserRouter>
    </>

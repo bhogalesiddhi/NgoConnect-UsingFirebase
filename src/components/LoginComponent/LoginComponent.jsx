@@ -18,38 +18,44 @@ const LoginComponent = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try{
-      const userLoginCredential = await signInWithEmailAndPassword(auth,email,password);
-      console.log(userLoginCredential)
-      alert("Login Successfull");
-
-      
-      //fetch the user's role
+    try {
+      const userLoginCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log(userLoginCredential);
+      alert("Login Successful");
+  
+     
       const userRole = await fetchUserRole(email);
-
+  
       const userInfo = {
-        uid : userLoginCredential.user.uid,
-        userEmail : email,
-        userRole:userRole
-      }
-
-      localStorage.setItem('userInfo',JSON.stringify(userInfo));
+        uid: userLoginCredential.user.uid,
+        userEmail: email,
+        userRole: userRole
+      };
+  
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
       cookies.set("auth-cookiee", userLoginCredential.user.uid);
-      
+  
       setEmail("");
       setPassword("");
       setRole(userRole);
-      navigate("/")
-    }catch(err){
-      if(err.code === 'auth/invalid-login-credentials')
-      {
-        console.log(err.code);
-      alert("Incorrect Password");
+      console.log("User Role:", userRole);
+  
+      if(userRole === 'admin'){
+        navigate('/adminDashboard');
       }else{
+        navigate('/')
+      }
+     
+    } catch (err) {
+      console.error("Login Error:", err.message); // Log Firebase error message
+      if (err.code === 'auth/invalid-login-credentials') {
+        alert("Incorrect Password");
+      } else {
         console.log(err);
       }
     }
-  }
+  };
+  
 
   return (
     
@@ -76,9 +82,9 @@ const LoginComponent = () => {
             <div className='formWrapper selectSection' >
             <label >Choose your role :</label>
                   <select value={role} onChange={(e) => setRole(e.target.value)} name='role' id='role'>
-                    <option value='User'>user</option>
-                    <option value='Ngo'>ngo</option>
-                    <option value='Admin'>admin </option>
+                    <option value='user'>user</option>
+                    <option value='ngo'>ngo</option>
+                    <option value='admin'>admin </option>
                   </select>
             </div>
             <div className='formWrapper'>

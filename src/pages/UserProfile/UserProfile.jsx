@@ -76,7 +76,7 @@ const UserProfile = (props) => {
         <div>
         <div className="profile-img">
           {/* User image goes here */}
-          <img src={volunteer} alt="User" />
+          <img src={userData.profileImg} alt="User" />
         </div>
         <div className="profile-info">
           <h2>User Profile</h2>

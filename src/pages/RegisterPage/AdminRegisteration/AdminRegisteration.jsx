@@ -3,9 +3,11 @@ import './AdminRegisteration.css'
 import { auth,db,storage } from '../../../firebaseConfig';
 import { addDoc, collection } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const AdminRegisteration = () => {
-
+  const navigate = useNavigate();
   const [fname , setFname] = useState("");
   const [email , setEmail] = useState("");
   const [contact ,setContact] = useState("");
@@ -26,7 +28,10 @@ const AdminRegisteration = () => {
         console.log("Error uploading image", err);
       }
   
+      const adminCredential = await createUserWithEmailAndPassword(auth,email,password);
+
       await addDoc(adminCollectionRef, {
+        uid:adminCredential.user.uid,
         fname: fname,
         email: email,
         contact: contact,
@@ -34,6 +39,8 @@ const AdminRegisteration = () => {
         profile: link,
         role: role,
       });
+      alert("Registration successfull")
+      navigate("/login")
     } catch (err) {
       console.log("Error registering admin", err);
     }

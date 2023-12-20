@@ -82,7 +82,7 @@ const NgoPortfolio = () => {
       <div className='ngoProfile'>
         <div className='topSection'>
           <div className='topLeft'>
-            <img src={volunteer} alt='ngoLogo'></img>
+            <img src={ngoData.logoImg} alt='ngoLogo'></img>
           </div>
           <div className='topRight'>
             <div className='ngoName'>
@@ -101,9 +101,7 @@ const NgoPortfolio = () => {
               <span>{ngoData.timings}</span>
             </div>
             <div className='ngoButtons'>
-              <button><Link to={`/createProject/${ngoData.id}`}>Create Project</Link></button>
-              <button>View Volunteers</button>
-              <button>View Donations</button>
+              <Link to={`/createProject/${ngoData.id}`}><button>Create Project</button></Link>
               <button onClick={handleLogout} >Logout</button>
             </div>
           </div>
@@ -114,7 +112,7 @@ const NgoPortfolio = () => {
         <div className='projectCards'>
   {projectData.map((project) => (
     <div key={project.id} className='card'>
-      <img src={volunteer} alt='Project' />
+      <img src={project.projectImage} alt='Project' />
       <h3 className='cardTitle'>{project.projectName}</h3>
       <div className='cardDescription'>{project.projectDescription}</div>
       <div className='cardDate'>Date: {project.projectStart} - {project.projectEnd}</div>

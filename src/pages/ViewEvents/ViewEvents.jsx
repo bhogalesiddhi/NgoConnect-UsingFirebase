@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs , doc , deleteDoc } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import './ViewEvents.css'
 import Navbar from '../../components/Navbar/Navbar';
@@ -27,6 +27,16 @@ const EventList = () => {
     fetchEvents();
   }, [projectId]);
 
+  const handleDeleteEvent = async (eventId) => {
+    try {
+      const eventRef = doc(db, `ngo/${ngoId}/projects/${projectId}/events`, eventId);
+      await deleteDoc(eventRef);
+      setEvents(events.filter((event) => event.id !== eventId));
+    } catch (error) {
+      console.error('Error deleting event:', error);
+    }
+  }
+
   return (
     <>
     <Navbar/>
@@ -39,6 +49,7 @@ const EventList = () => {
           <p>Location: {event.location}</p>
           <p>Date: {event.startDate} - {event.endDate}</p>
           <p>Time: {event.startTime} - {event.endTime}</p>
+          <button onClick={() => handleDeleteEvent(event.id)}>Delete Event</button>
         </div>
       ))}
     </div>

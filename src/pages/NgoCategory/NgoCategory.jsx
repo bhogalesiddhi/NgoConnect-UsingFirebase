@@ -4,6 +4,8 @@ import React from 'react';
 import './NgoCategory.css'; // Import your CSS file for styling
 import Navbar from '../../components/Navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
+ 
+
 
 const NgoCategory = () => {
   const navigate = useNavigate();
@@ -11,7 +13,7 @@ const NgoCategory = () => {
     {
       name: 'Education',
       description: 'Supporting education for children in need.',
-      imageUrl: 'education.jpg', // Replace with your image URL
+      imageUrl: '../../images/education.jpg' , // Replace with your image URL
     },
     {
       name: 'Healthcare',
@@ -24,13 +26,13 @@ const NgoCategory = () => {
       imageUrl: 'environment.jpg', // Replace with your image URL
     },
     {
-        name: 'Environment',
-        description: 'Preserving and protecting the environment.',
+        name: 'Human Rights',
+        description: 'Promotes and protects the fundamental rights and freedoms of individuals regardless of race, religion, or socio-economic status.',
         imageUrl: 'environment.jpg', // Replace with your image URL
       },
       {
-        name: 'Environment',
-        description: 'Preserving and protecting the environment.',
+        name: 'Animal Welfare',
+        description: 'Dedicated to safeguarding and improving the well-being of animals, working tocreate a better environment for all living creatures.',
         imageUrl: 'environment.jpg', // Replace with your image URL
       },
       {
@@ -66,7 +68,7 @@ const NgoCategory = () => {
       <div className="category-cards">
         {categories.map((category, index) => (
           <div className="category-card" key={index}>
-            <img src={category.imageUrl} alt={category.name} />
+            <img src="../../images/education.jpg" alt={category.name} />
             <h3>{category.name}</h3>
             <p>{category.description}</p>
             <button onClick={() => handleCategoryClick(category.name)}>View NGOs</button>
