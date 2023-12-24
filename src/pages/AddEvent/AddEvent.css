@@ -1,0 +1,72 @@
+/* AddEvent.css */
+
+/* Style for the form container */
+
+/* .wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+} */
+
+.add-event-container {
+    
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 500px;
+  }
+
+  
+.form-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style for form elements */
+  .add-event-container form div {
+    margin-bottom: 15px;
+  }
+  
+  .add-event-container form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .add-event-container form input[type='text'],
+  .add-event-container form input[type='date'],
+  .add-event-container form input[type='time'],
+  .add-event-container form textarea,
+  .add-event-container form button,
+  .add-event-container form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .add-event-container form button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .add-event-container form button:hover {
+    background-color: #45a049;
+  }
+  
+  .add-event-container form input[type='file'] {
+    display: block;
+    margin-top: 5px;
+  }
+  

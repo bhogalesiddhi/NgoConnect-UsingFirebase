@@ -1,0 +1,13 @@
+<div className='projectCards'>
+  {projectData.map((project) => (
+    <div key={project.id} className='card'>
+      <img src={volunteer} alt='Project' />
+      <div className='cardDescription'>{project.projectDescription}</div>
+      <div className='cardDate'>Date: {project.projectStart} - {project.projectEnd}</div>
+      <div className='cardButtons'>
+        <button>Add Event</button>
+        <button>View Events</button>
+      </div>
+    </div>
+  ))}
+</div>

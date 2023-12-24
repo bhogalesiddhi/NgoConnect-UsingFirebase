@@ -1,0 +1,53 @@
+/* NgoList.css */
+
+/* .wrapper {
+    margin-top: 10px;
+  } */
+  
+  .ngo-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    justify-content: space-between; /* Align items from start to end */
+  }
+  
+  .ngo-details {
+    flex: 1;
+    padding-right: 20px; /* Provide space between details and button */
+  }
+  
+  .ngo-logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+  
+  .ngo-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .ngo-description {
+    color: black;
+    margin-bottom: 10px;
+    max-width: 250px; /* Set a maximum width for the description */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for long descriptions */
+    white-space: nowrap;
+  }
+  
+  .view-ngo-btn {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  /* Adjust margins or paddings as needed */
+  

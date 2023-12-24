@@ -1,0 +1,93 @@
+.login{
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   height: 100vh;
+}
+.loginWrapper{
+  display : flex;
+  
+}
+
+.loginLeft{
+  flex:1;
+}
+
+.loginRight{
+  flex :2;
+  border : 1px solid black;
+  padding : 20px;
+  
+}
+
+.heading{
+  text-align : center;
+  padding : 4px;
+}
+
+
+.loginInput{
+  margin-bottom : 10px;
+  width:200px;
+  padding : 8px;
+  border-radius:3px;
+}
+
+.selectSection{
+  margin-bottom : 10px;
+}
+
+.loginButton{
+  width : 100%;
+  cursor : pointer;
+  padding :10px;
+  margin-top: 10px;
+  margin-bottom:10px;
+  border-radius : 3px;
+  /* background-color : blue; */
+}
+
+.loginBottom{
+  margin-top:10px;
+}
+
+.registerOption{
+  display : flex;
+  justify-content : space-between;
+  gap:2px;
+}
+
+/* Your existing CSS */
+
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers items horizontally */
+  justify-content: center; /* Centers items vertically */
+  text-align: center; /* Centers text */
+  padding: 20px;
+}
+
+.loginHeading {
+  margin-bottom: 20px; /* Adds space below the heading */
+}
+
+.loginBottom {
+  margin-top: 40px; /* Increases space from the top */
+  display : flex;
+  flex-direction:column;
+  
+}
+
+.registerOption {
+  display: flex;
+  gap: 10px;
+}
+
+.registerSection{
+  margin-top: 10px;
+}
+
+.registerWord {
+  margin-bottom: 10px; /* Adds space below the "Register as" text */
+}

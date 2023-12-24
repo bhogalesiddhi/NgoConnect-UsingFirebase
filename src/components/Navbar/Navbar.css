@@ -1,0 +1,59 @@
+/* Navbar.css */
+
+.navbar {
+    position: sticky;
+  top: 0;
+  z-index: 1000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #4CAF50; /* Green color - change it as needed */
+    color: #fff;
+  }
+  
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 40px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .brand {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* .navbar-right {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+  } */
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .nav-links li {
+    margin-left: 60px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+    color: #FFEB3B; /* Yellow color - change it as needed */
+  }
+  

@@ -1,0 +1,84 @@
+/* NgoProfile.css */
+
+.ngoProfile {
+    /* margin: 20px; */
+    max-width: 800px;
+    margin: 20px auto;
+    padding:  20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  .topSection {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .topLeft img {
+    width: 200px;
+    height: 200px;
+    /* Add other styles as needed for image */
+  }
+  
+  .topRight {
+    width: 60%;
+    /* Add other styles as needed for the right section */
+  }
+  
+  .subtitle {
+    /* Add subtitle styles */
+  }
+  
+  .ngoButtons {
+    display: flex;
+    /* justify-content: space-between; //add this when you add the other 2 btn i.e view volunteer and donations */
+    margin-bottom: 20px;
+    gap : 10px;
+  }
+  
+  .projectCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card {
+    width: 300px;
+    margin-bottom: 20px;
+    /* Add card styles */
+  }
+  
+  .card img {
+    /* width: 100%;
+    height: auto; */
+    /* Add other styles for card images */
+    width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  }
+  
+  .cardDescription {
+    /* Add styles for project descriptions */
+    margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  }
+  
+  .cardDate {
+    font-style: italic;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #888;
+  margin-bottom: 10px;
+    /* Add styles for project dates */
+  }
+  
+  .cardButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    /* Add styles for card buttons */
+  }
+  

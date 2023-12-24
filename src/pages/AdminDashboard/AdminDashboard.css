@@ -1,0 +1,84 @@
+.wrapper {
+    margin-top: 10px;
+  }
+  
+  .ngo-container {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    justify-content: space-between; /* Align items from start to end */
+  }
+  
+  .ngo-details {
+    flex: 1;
+    padding-right: 20px; /* Provide space between details and button */
+  }
+  
+  .ngo-logo {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+  
+  .ngo-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .ngo-description {
+    color: black;
+    margin-bottom: 10px;
+    max-width: 250px; /* Set a maximum width for the description */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis for long descriptions */
+    white-space: nowrap;
+  }
+  
+  .view-ngo-btn {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    margin-right: 10px;
+  }
+  
+  .delete-ngo-btn {
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+  }
+
+ 
+
+ .profile-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust margin as needed */
+ }
+   .profile-btn {
+    padding: 10px 20px;
+    background-color: #007bff; /* Your preferred button color */
+     color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+  } 
+  
+ .profile-btn:hover {
+    background-color: #0056b3; /* Darker shade of the button color on hover */
+ } 
+  
+
+  
