@@ -69,6 +69,7 @@ const LoginComponent = () => {
         email,
         password
       );
+      console.log(userLoginCredential.user)
       const userEmail = userLoginCredential?.user?.email;
       const userid = userLoginCredential?.user?.uid;
       const userRole = e.target.elements.role.value;

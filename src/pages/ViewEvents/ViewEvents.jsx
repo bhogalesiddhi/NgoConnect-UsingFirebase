@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { collection, getDocs , doc , deleteDoc } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import './ViewEvents.css'
@@ -8,6 +8,7 @@ import Navbar from '../../components/Navbar/Navbar';
 const EventList = () => {
   const { ngoId , projectId } = useParams();
   const [events, setEvents] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -37,6 +38,10 @@ const EventList = () => {
     }
   }
 
+  const handleNavigate = (eventId) => {
+    navigate(`/${ngoId}/${projectId}/${eventId}/volunteerList`);
+  }
+
   return (
     <>
     <Navbar/>
@@ -49,7 +54,10 @@ const EventList = () => {
           <p>Location: {event.location}</p>
           <p>Date: {event.startDate} - {event.endDate}</p>
           <p>Time: {event.startTime} - {event.endTime}</p>
-          <button onClick={() => handleDeleteEvent(event.id)}>Delete Event</button>
+          <div className="button-grp">
+          <button onClick={() => handleDeleteEvent(event.id)} className='delete'>Delete Event</button>
+          <button className='volunteer' onClick={() => handleNavigate(event.id)}>View Volunteers</button>
+          </div>
         </div>
       ))}
     </div>

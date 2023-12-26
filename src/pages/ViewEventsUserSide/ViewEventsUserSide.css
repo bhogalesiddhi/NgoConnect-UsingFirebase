@@ -1,4 +1,19 @@
 /* EventList.css */
+/* ViewEventsUserSide.css */
+
+.event-card button {
+  background-color: blue;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.event-card button:hover {
+  background-color: darkblue;
+}
 
 .event-list {
   margin-top:10px;

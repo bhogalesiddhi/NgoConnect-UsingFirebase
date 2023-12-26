@@ -21,6 +21,8 @@ import AdminProfile from './pages/AdminProfile/AdminProfile';
 import ViewNgoAdmin from './pages/ViewNgoAdmin/ViewNgoAdmin';
 import { userState } from './atom/useratom';
 import { useRecoilState } from 'recoil';
+import VolunteerForm from './pages/VolunteerForm/VolunteerForm';
+import VolunteerList from './pages/VoulnteerList/VolunteerList';
 
 
  const cookies = new Cookies();
@@ -57,6 +59,8 @@ function App() {
       <Route path='/adminDashboard' element={<AdminDashboard/>}/>
       <Route path='/adminProfile' element={<AdminProfile/>}/>
       <Route path='/admin/:ngoId' element={<ViewNgoAdmin/>}/>
+      <Route path='/:ngoId/:projectId/:eventId/form' element={<VolunteerForm/>}/>
+      <Route path='/:ngoId/:projectId/:eventId/volunteerList' element={<VolunteerList/>}/>
     </Routes>
    </BrowserRouter>
    </>

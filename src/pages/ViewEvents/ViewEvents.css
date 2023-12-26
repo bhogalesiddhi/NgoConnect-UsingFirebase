@@ -34,7 +34,7 @@
   
   .event-card button {
     padding: 8px 12px;
-    background-color: #dc3545;
+    /* background-color: #dc3545; */ 
     color: white;
     border: none;
     border-radius: 5px;
@@ -42,6 +42,22 @@
     transition: background-color 0.3s ease;
   }
   
+  .button-grp {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px; /* Adjust the margin as needed */
+  }
+  
+  .delete {
+    background-color: red;
+    color: white;
+  }
+  
+  .volunteer {
+    background-color: blue;
+    color: white;
+  }
+
   .event-card button:hover {
     background-color: #c82333;
   }

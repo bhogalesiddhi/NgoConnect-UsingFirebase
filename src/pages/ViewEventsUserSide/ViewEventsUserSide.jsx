@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import './ViewEventsUserSide.css'
@@ -8,6 +8,11 @@ import Navbar from '../../components/Navbar/Navbar';
 const ViewEventsUserSide = () => {
   const { ngoId , projectId } = useParams();
   const [events, setEvents] = useState([]);
+  const navigate = useNavigate();
+
+  const handleVolunteer = (eventId) => {
+    navigate(`/${ngoId}/${projectId}/${eventId}/form`)
+  }
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -39,6 +44,7 @@ const ViewEventsUserSide = () => {
           <p>Location: {event.location}</p>
           <p>Date: {event.startDate} - {event.endDate}</p>
           <p>Time: {event.startTime} - {event.endTime}</p>
+          <button onClick={() =>handleVolunteer(event.id)}>Volunteer</button>
         </div>
       ))}
     </div>

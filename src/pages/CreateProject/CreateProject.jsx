@@ -36,6 +36,7 @@ const CreateProject = () => {
         console.log("Error uploading image", err);
       }
         const projectCollectionRef = collection(db,`ngo/${docId}/projects`);
+        
 
         const newProject = {
             projectName : projectName,

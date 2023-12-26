@@ -29,12 +29,12 @@ const NgoCategory = () => {
       imageUrl: projectimg, // Replace with your image URL
     },
     {
-        name: 'Human Rights',
+        name: 'HumanRights',
         description: 'Promotes and protects the fundamental rights and freedoms of individuals regardless of race, religion, or socio-economic status.',
         imageUrl: humanrightsimg, // Replace with your image URL
       },
       {
-        name: 'Animal Welfare',
+        name: 'AnimalWelfare',
         description: 'Dedicated to safeguarding and improving the well-being of animals, working tocreate a better environment for all living creatures.',
         imageUrl: animalimg, // Replace with your image URL
       },
