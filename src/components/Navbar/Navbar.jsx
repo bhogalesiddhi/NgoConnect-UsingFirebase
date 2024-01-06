@@ -39,7 +39,7 @@ const Navbar = () => {
             <Link to="/ngoCategory">All NGOs</Link>{" "}
           </li>
           <li>
-            <a href="#about-us">About Us</a>
+           <Link to='/aboutUs'>About Us</Link>
           </li>
           <li>
             {" "}

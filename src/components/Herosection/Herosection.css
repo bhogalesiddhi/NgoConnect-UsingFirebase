@@ -8,8 +8,21 @@
   
   .hero-image {
     width: 100vw; /* Set the width of the image to 100% of the viewport width */
-    max-height: 95vh; /* Set the maximum height of the image */
+    max-height: 200vh; /* Set the maximum height of the image */
     height: auto; /* Maintain aspect ratio */
     display: block; /* Ensures the image is treated as a block element */
   }
   
+  /* HeroSection.css */
+
+/* Reduce the height of the carousel */
+.carousel-root {
+  max-height: 70vh; /* Adjust the height as needed */
+}
+
+/* Adjust the height of the images inside the carousel */
+.carousel .slide img {
+  max-height: 100%; /* Maintain aspect ratio */
+  height: auto;
+  object-fit:contain;
+}

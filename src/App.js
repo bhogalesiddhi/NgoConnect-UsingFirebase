@@ -23,6 +23,8 @@ import { userState } from './atom/useratom';
 import { useRecoilState } from 'recoil';
 import VolunteerForm from './pages/VolunteerForm/VolunteerForm';
 import VolunteerList from './pages/VoulnteerList/VolunteerList';
+import AboutUs from './pages/AboutUs/AboutUs';
+import Donate from './pages/Donate/Donate';
 
 
  const cookies = new Cookies();
@@ -61,6 +63,8 @@ function App() {
       <Route path='/admin/:ngoId' element={<ViewNgoAdmin/>}/>
       <Route path='/:ngoId/:projectId/:eventId/form' element={<VolunteerForm/>}/>
       <Route path='/:ngoId/:projectId/:eventId/volunteerList' element={<VolunteerList/>}/>
+      <Route path='/aboutUs' element={<AboutUs/>}/>
+      <Route path='/donate' element={<Donate/>}/>
     </Routes>
    </BrowserRouter>
    </>

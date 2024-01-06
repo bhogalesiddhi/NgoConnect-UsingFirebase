@@ -1,0 +1,16 @@
+/* Donate.css */
+
+.donate-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .qr-code {
+    margin-top: 20px;
+  }
+  

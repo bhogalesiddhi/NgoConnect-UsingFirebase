@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import './NgoProfile.css';
 import volunteer from '../../images/volunteer1.jpg';
-import {useNavigate, useParams} from 'react-router-dom';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 import {db} from '../../firebaseConfig';
 import {collection,getDocs, doc,getDoc} from 'firebase/firestore'
 
@@ -84,7 +84,7 @@ const NgoProfile = () => {
             </div>
             <div className='ngoButton'>
               <button>Volunteer</button>
-              <button>Donate</button>
+              <Link to='/donate'><button>Donate</button></Link>
             </div>
           </div>
         </div>

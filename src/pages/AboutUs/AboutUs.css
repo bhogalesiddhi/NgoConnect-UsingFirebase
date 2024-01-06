@@ -1,0 +1,142 @@
+/* AboutUs.css */
+
+/* Overall page styles */
+.about-us {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Intro section */
+  .intro {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .intro h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .intro p {
+    color: #555;
+  }
+  
+  /* Story section */
+  .story {
+    margin-bottom: 30px;
+  }
+  
+  .story h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .story p {
+    color: #555;
+  }
+  
+  /* Mission and Values section */
+  .mission-values {
+    margin-bottom: 30px;
+  }
+  
+  .mission-values h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .mission-values p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .mission-values ul {
+    list-style-type: none;
+    margin-left: 20px;
+    color: #555;
+  }
+  
+  .mission-values ul li {
+    margin-bottom: 5px;
+  }
+  
+  /* Team section */
+  .team {
+    margin-bottom: 30px;
+  }
+  
+  .team h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .team p {
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  /* Get Involved section */
+  .get-involved {
+    text-align: center;
+  }
+  
+  .get-involved h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .get-involved p {
+    color: #555;
+    margin-bottom: 30px;
+  }
+/* AboutUs.css */
+
+/* ... [Previous styles] ... */
+
+/* Contact section */
+.contact {
+    margin-bottom: 30px;
+  }
+  
+  .contact h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .contact p {
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  /* Social links */
+  .social-links {
+    margin-bottom: 20px;
+  }
+  
+  .social-links a {
+    font-size: 1.5em;
+    margin-right: 10px;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .social-links a:hover {
+    color: #0077b5; /* LinkedIn hover color */
+  }
+  
+  /* FontAwesome icon styles (Assuming FontAwesome is used for social icons) */
+  .fa-linkedin {
+    color: #0e76a8; /* LinkedIn icon color */
+  }
+  
+  .fa-instagram {
+    color: #c32aa3; /* Instagram icon color */
+  }
+    

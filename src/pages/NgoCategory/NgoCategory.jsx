@@ -8,6 +8,7 @@ import educationimg from "../../images/education.jpg";
 import animalimg from "../../images/animalW1.jpg";
 import humanrightsimg from "../../images/humanrights.jpeg"
 import projectimg from "../../images/projectsImg.jpg"
+import healthCimg from "../../images/images.jpeg"
 
 
 const NgoCategory = () => {
@@ -21,13 +22,13 @@ const NgoCategory = () => {
     {
       name: 'Healthcare',
       description: 'Promoting health and well-being.',
-      imageUrl: 'healthcare.jpg', // Replace with your image URL
+      imageUrl: healthCimg , // Replace with your image URL
     },
-    {
-      name: 'Environment',
-      description: 'Preserving and protecting the environment.',
-      imageUrl: projectimg, // Replace with your image URL
-    },
+    // {
+    //   name: 'Environment',
+    //   description: 'Preserving and protecting the environment.',
+    //   imageUrl: projectimg, // Replace with your image URL
+    // },
     {
         name: 'HumanRights',
         description: 'Promotes and protects the fundamental rights and freedoms of individuals regardless of race, religion, or socio-economic status.',
